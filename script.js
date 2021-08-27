@@ -5,20 +5,20 @@ const moreThan10 = (element)=> element > 10
 
 const equal1 = (element) => element === 1
 
-function forEach(array, callback) {
+function newForEach(array, callback) {
    for(element of array){
        element = callback(element)
    }
 }
 
-function fill(array, num ,inicio = 0, fim = array.length) {
+function newFill(array, num ,inicio = 0, fim = array.length) {
     for(let i=0; inicio < fim; inicio++){
         array[inicio] = num
     }
     return array
 }
 
-function map(array, callback) {
+function newMap(array, callback) {
     output = [] 
     for(element of array){
         output.push(callback(element))
@@ -26,7 +26,7 @@ function map(array, callback) {
     return output
 }
 
-function some(arr,callback){
+function newSome(arr,callback){
     for (element of arr){
         let result = callback(element)
         if (result) return result
@@ -34,7 +34,7 @@ function some(arr,callback){
     return false
 }
 
-function find(arr,callback){
+function newFind(arr,callback){
     for (element of arr){
         let result = callback(element)
         if (result) return element
@@ -42,7 +42,7 @@ function find(arr,callback){
     return undefined
 }
 
-function findIndex(arr,callback){
+function newFindIndex(arr,callback){
     for (element in arr){
        if(callback(arr[element])){
            return element
@@ -51,7 +51,7 @@ function findIndex(arr,callback){
 }
 
 
-function every(arr,callback){
+function newEvery(arr,callback){
 
     for(element of arr){
         if(!callback(element)) return false
@@ -59,7 +59,7 @@ function every(arr,callback){
     return true
 }
 
-function filter(arr,callback){
+function newFilter(arr,callback){
     let output = []
     for (element of arr){
         if (callback(element)){
@@ -69,7 +69,7 @@ function filter(arr,callback){
     return output
 }
 
-function concat(){
+function newConcat(){
     output = []
     for(element in arguments){
        output.push(arguments[element])
@@ -77,7 +77,7 @@ function concat(){
     return output
 }
 
-function includes(arr,callback){
+function newIncludes(arr,callback){
     for (element of arr){
         let result = callback(element)
         if (result) return result
@@ -85,14 +85,14 @@ function includes(arr,callback){
     return false
 }
 
-function indexOf(arr,element,indexInicial = 0){
+function newIndexOf(arr,element,indexInicial = 0){
     for (let index = indexInicial; index < arr.length; index++){
         if (arr[index] === element) return index
     }
     return -1
 }
 
-function join(arr,divisor){
+function newJoin(arr,divisor){
     let output = ''
     for (let i = 0; i < arr.length; i++){
         output += arr[i]
@@ -102,8 +102,7 @@ function join(arr,divisor){
     }
     return output
 }
-function reduce(arr ,callback, acumulador=0, valorAtual, index, array=arr){
-    console.log(callback)
+function newReduce(arr ,callback, acumulador=0, valorAtual, index, array=arr){
     for (index = 0; index < arr.length; index++){
         valorAtual = array[index]
         acumulador = callback(acumulador, valorAtual, index, array)
